@@ -47,14 +47,14 @@ def convert_format(example, rank, audio_dir, delay_token_nums=10):
     ]
 
     # Save input audio to local
-    audio_data = example['input_audio']
-    input_audio_path = f"{audio_dir}/{audio_data['path']}"
-    sf.write(input_audio_path, audio_data['array'], audio_data['sampling_rate'])
+    input_audio_data = example['input_audio']
+    input_audio_path = f"{audio_dir}/{input_audio_data['path']}"
+    sf.write(input_audio_path, input_audio_data['array'], input_audio_data['sampling_rate'])
 
     # Save output audio to local
-    audio_data = example['output_audio']
-    output_audio_path = f"{audio_dir}/{audio_data['path']}"
-    sf.write(output_audio_path, audio_data['array'], audio_data['sampling_rate'])
+    output_audio_data = example['output_audio']
+    output_audio_path = f"{audio_dir}/{output_audio_data['path']}"
+    sf.write(output_audio_path, output_audio_data['array'], output_audio_data['sampling_rate'])
 
     assistant_tokens = extract_speech_token(ort_session, output_audio_path)
 
@@ -62,7 +62,7 @@ def convert_format(example, rank, audio_dir, delay_token_nums=10):
         {
             "path": os.path.realpath(input_audio_path),
             "text": "",
-            "token": AUDIO_PAD_TOKEN * int(audio_data['array'].shape[0] / audio_data['sampling_rate'] * TOKEN_FPS),
+            "token": AUDIO_PAD_TOKEN * int(input_audio_data['array'].shape[0] / input_audio_data['sampling_rate'] * TOKEN_FPS),
             "ref_path": "",
             "ref_text": example['speech_input'],
         },
