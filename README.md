@@ -56,6 +56,7 @@
 
 ## <a id="news"></a>📰 News
 
+- **[2026.01.29]** Thanks to [@nemoramo](https://github.com/nemoramo) for contributing [**S2T** inference support to the official **vLLM** repository](https://github.com/FunAudioLLM/Fun-Audio-Chat/issues/39), achieving ~20x speedup for short audios and ~50x for long audios!
 - **[2026.01.26]** Our previous work [DrVoice: Parallel Speech-Text Voice Conversation Model via Dual-Resolution Speech Representations](https://arxiv.org/abs/2506.09349) has been accepted by ICLR 2026!
 - **[2025.12.23]** Fun-Audio-Chat-8B (model, training and inference code) released with state-of-the-art performance on multiple spoken question answering, audio understanding, speech function calling, speech instruction-following and voice empathy benchmarks
 
